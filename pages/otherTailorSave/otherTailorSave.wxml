@@ -1,0 +1,88 @@
+<view class="container" style="padding:50rpx;align-items:left;background-color:rgb(242, 242, 242)">
+  <view class="section">
+      <scroll-view scroll-x="true">  
+        <view class="table">
+          <view class="tr bg-w">
+            <view class="th" style='width:8%'>序号</view>
+            <view class="th" style='width:20%'>版单</view>
+            <view class="th" style='width:20%'>订单</view>
+            <view class="th" style='width:10%'>颜色</view>
+            <view class="th" style='width:15%'>缸号</view>
+            <view class="th" style='width:10%'>床号</view>
+            <view class="th" style='width:10%'>扎号</view>
+            <view class="th" style='width:10%'>数量</view>
+            <view class="th" style='width:10%'>部位</view>
+            <view class="th" style='width:10%'>尺码</view>
+            <view class="th" style='width:20%'>二维码</view>
+            <view class="th" style='width:15%'>操作</view>
+          </view>
+          <block wx:for="{{tailorList}}">
+            <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+              <view class="td" style='width:8%'>{{index+1}}</view>
+              <view class="td" style='width:20%'>{{item.clothesVersionNumber}}</view>
+              <view class="td" style='width:20%'>{{item.orderName}}</view>
+              <view class="td" style='width:10%'>{{item.colorName}}</view>
+              <view class="td" style='width:15%'>{{item.jarName}}</view>
+              <view class="td" style='width:10%'>{{item.bedNumber}}</view>
+              <view class="td" style='width:10%'>{{item.packageNumber}}</view>
+              <view class="td" style='width:10%'>{{item.layerCount}}</view>
+              <view class="td" style='width:10%'>{{item.partName}}</view>
+              <view class="td" style='width:10%'>{{item.sizeName}}</view>
+              <view class="td" style='width:20%'>{{item.tailorQcodeID}}</view>
+              <view class="td" style='width:15%;'>
+                <view style="color:red;margin-right:5px;" data-index="{{index}}" bindtap='delete'>删除</view>
+                <view style="color:#6495ED;" data-index="{{index}}" bindtap='update'>改数</view>
+              </view>
+            </view>
+            <view class="tr" wx:else>
+              <view class="td" style='width:8%'>{{index+1}}</view>
+              <view class="td" style='width:20%'>{{item.clothesVersionNumber}}</view>
+              <view class="td" style='width:20%'>{{item.orderName}}</view>
+              <view class="td" style='width:10%'>{{item.colorName}}</view>
+              <view class="td" style='width:15%'>{{item.jarName}}</view>
+              <view class="td" style='width:10%'>{{item.bedNumber}}</view>
+              <view class="td" style='width:10%'>{{item.packageNumber}}</view>
+              <view class="td" style='width:10%'>{{item.layerCount}}</view>
+              <view class="td" style='width:10%'>{{item.partName}}</view>
+              <view class="td" style='width:10%'>{{item.sizeName}}</view>
+              <view class="td" style='width:20%'>{{item.tailorQcodeID}}</view>
+              <view class="td" style='width:15%;'>
+                <view style="color:red;margin-right:5px;" data-index="{{index}}" bindtap='delete'>删除</view>
+                <view style="color:#6495ED;" data-index="{{index}}" bindtap='update'>改数</view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+      <view style="margin-top:100rpx">
+        <button class='btn' bindtap='save'>保存</button>
+      </view>
+    </view>
+    <view class='toast-box' hidden='{{isHide}}'>
+      <view class='toastbg'></view>
+      <view class='showToast'>
+          <view class='toast-title'>
+              <text>改数</text>
+          </view>
+          <view class='toast-main'>
+              <view class='toast-input' style='display: flex;flex-direction:row;' >
+                <view style="width: 30%;">原数量</view>
+                <input type="number" value='{{initCount}}'></input>
+              </view>
+              <view class='toast-input' style='display: flex;flex-direction:row;' >
+                <view style="width: 30%;">修改成</view>
+                <input type="number" bindinput='setUpdateCount' value='{{updateCount}}'></input>
+              </view>
+          </view>
+          <view class='toast-button'>
+              <view class='button1'>
+                  <button catchtap='cancel'>取消</button>
+              </view>
+              <view class='button2'>
+                  <button catchtap='confirm'>确定</button>
+              </view>
+          </view>
+      </view>
+  </view>
+
+</view>

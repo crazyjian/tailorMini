@@ -1,0 +1,32 @@
+<view class="container" style="padding-top:40rpx;align-items:center;background-color:rgb(242, 242, 242)">
+    <!-- <image src='../../static/img/scan_index.png' mode="aspectFit"></image> -->
+  <view class="section">
+    <view class="title" style="color:#4682B4">主身票菲</view>
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item" style="width:50%">
+        <image class='itemImg' src='../../static/img/list1.png' mode="aspectFit" bindtap='mainTailorCreate'></image>
+        <text>票菲生成</text>
+      </view>
+      <view class="flex-item" style="width:50%">
+        <image class='itemImg' src='../../static/img/search1.png' mode="aspectFit" bindtap='mainTailorSearch'></image>
+        <text>票菲查询</text>
+      </view>
+    </view>
+  
+    <view class="title" style="color:#32CD32;padding-top:80rpx">配料票菲</view>
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item">
+        <image class='itemImg' src='../../static/img/list2.png' mode="aspectFit" bindtap='otherTailorCreate'></image>
+        <text>票菲生成</text>
+      </view>
+      <view class="flex-item">
+        <image class='itemImg' src='../../static/img/tag.png' mode="aspectFit" bindtap='embOutStore'></image>
+        <text>固定配比</text>
+      </view>
+      <view class="flex-item">
+        <image class='itemImg' src='../../static/img/search2.png' mode="aspectFit" bindtap='otherTailorSearch'></image>
+        <text>票菲查询</text>
+      </view>
+    </view>
+  </view>
+</view>

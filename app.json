@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/person/person",
+    "pages/password/password",
+    "pages/employee/employee",
+    "pages/mainTailorCreate/mainTailorCreate",
+    "pages/mainMatchRatio/mainMatchRatio",
+    "pages/mainTailorSave/mainTailorSave",
+    "pages/otherTailorCreate/otherTailorCreate",
+    "pages/otherMatchRatio/otherMatchRatio",    
+    "pages/otherTailorSave/otherTailorSave"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#6495ED",
+    "navigationBarTitleText": "菲票打印",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#6495ED",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "static/img/operate-selected.png",
+        "iconPath": "static/img/operate.png",
+        "pagePath": "pages/index/index",
+        "text": "操作"
+      },
+      {
+        "selectedIconPath": "static/img/people-bottom-selected.png",
+        "iconPath": "static/img/people-bottom.png",
+        "pagePath": "pages/person/person",
+        "text": "我的"
+      }
+    ]
+  }
+}

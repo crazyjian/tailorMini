@@ -1,0 +1,59 @@
+<view class="container" style="padding:50rpx;align-items:left;background-color:rgb(242, 242, 242)">
+  <view class="section">
+    <view style="height:50%;">
+    <view style="display: flex;flex-direction:row;align-items: center;justify-content:space-between;margin-bottom:10px">
+      <text style="width:60%;">唛架配比</text>
+      <div class='inputItem' style="width:40%;display:flex;flex-direction:row;">
+      <view style="margin-right: 20px;">固定值</view>
+      <picker style="width:30%;" bindchange="bindFixedNumChange" value="{{f_index}}" range="{{fixedNumbers}}" data-index="{{f_index}}">
+        <view class="picker">
+        {{fixedNumbers[f_index]}}
+        </view>
+      </picker>
+      </div>
+      </view>
+      <scroll-view scroll-x="true" scroll-y="true" style="height:85%">  
+          <block wx:for="{{matchRatios}}">
+            <view class="flex-wrp" style="display: flex;flex-direction:row;align-items: center;">
+              <view style="margin-right:10rpx;width:20rpx">{{index+1}}</view>
+              <div class='inputItem' style="margin-right:20rpx;display:flex;flex-direction:row;">
+                <view>尺码</view>
+                <picker style="width:65%;" bindchange="bindSizeChange" value="{{s_index[index]}}" range="{{sizeNames}}" data-index="{{index}}">
+                <view class="picker">
+                {{sizeNames[s_index[index]]}}
+                </view>
+                </picker>
+              </div>
+              <div class='inputItem' style="margin-right:20rpx;display:flex;flex-direction:row;">
+                <view>配比</view>
+                <input class='searchItemInput' value="{{item.ratio}}" bindinput='setRatio' style="width:60%" data-index="{{index}}"></input>
+              </div>
+              <div style="display:flex;flex-direction:row;">
+                <view wx:if="{{matchRatios.length == (index+1)}}">
+                  <button class="smallBtn" bindtap='add' data-index="{{index}}">添加</button>
+                </view>
+                <view wx:else>
+                  <button class="smallBtn" style="background-color:red" bindtap='remove' data-index="{{index}}">删除</button>
+                </view>
+              </div>
+            </view>
+          </block>
+          <view style="display: flex;flex-direction:row;background: white;color: #6495ED;">
+        <view style="width:50%">累计配比：{{ratioTotal}}</view>
+        <view style="width:50%">累计件数：{{numTotal}}</view>
+      </view>
+      </scroll-view>
+    </view>
+    <view style="height:50%">
+      <text>选择部位</text>
+      <view style="display: flex;flex-direction:row;flex-wrap: wrap;">
+        <block wx:for="{{partNames}}">
+          <button class="{{item.selected ? 'partBtnSelected' : 'partBtn'}}"  bindtap="checkboxChange" data-index="{{index}}" data-value="{{item.name}}" >{{item.name}}</button>
+        </block>
+      </view>
+      <view style="margin-top:100rpx">
+        <button class='btn' bindtap='generate'>生成</button>
+      </view>
+    </view>
+  </view>
+</view>
