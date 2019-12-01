@@ -1,7 +1,17 @@
 <view class="container" style="padding:50rpx;align-items:left;background-color:rgb(242, 242, 242)">
   <view class="section">
-    <view style="height:50%;">  
-      <text>唛架配比</text>
+    <view style="height:50%;">
+    <view style="display: flex;flex-direction:row;align-items: center;justify-content:space-between;margin-bottom:10px">
+      <text style="width:60%;">唛架配比</text>
+      <div class='inputItem' style="width:40%;display:flex;flex-direction:row;">
+      <view style="margin-right: 20px;">固定值</view>
+      <picker style="width:30%;" bindchange="bindFixedNumChange" value="{{f_index}}" range="{{fixedNumbers}}" data-index="{{f_index}}">
+        <view class="picker">
+        {{fixedNumbers[f_index]}}
+        </view>
+      </picker>
+      </div>
+      </view>
       <scroll-view scroll-x="true" scroll-y="true" style="height:85%">  
           <block wx:for="{{matchRatios}}">
             <view class="flex-wrp" style="display: flex;flex-direction:row;align-items: center;">

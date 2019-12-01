@@ -25,5 +25,15 @@ Page({
     wx.navigateTo({
       url: "../otherTailorCreate/otherTailorCreate"
     })
+  },
+  otherFixedCreate: function () {
+    wx.navigateTo({
+      url: "../otherFixedCreate/otherFixedCreate"
+    })
+  },
+  otherTailorSearch:function() {
+    wx.navigateTo({
+      url: "../otherTailorSearch/otherTailorSearch"
+    })
   }
 })

@@ -73,6 +73,9 @@ Page({
     } else if (qrCode == '2') {
       app.globalData.backUrl = "https://lfm.jingyiclothing.com";
       app.globalData.factoryName = "盐城立福麦";
+    } else if (qrCode == '3') {
+      app.globalData.backUrl = "https://dy.jingyiclothing.com";
+      app.globalData.factoryName = "德悦";
     } else {
       app.globalData.backUrl = "http://192.168.0.103:8080";
       app.globalData.factoryName = "";

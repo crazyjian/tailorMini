@@ -20,7 +20,7 @@
         <text>票菲生成</text>
       </view>
       <view class="flex-item">
-        <image class='itemImg' src='../../static/img/tag.png' mode="aspectFit" bindtap='embOutStore'></image>
+        <image class='itemImg' src='../../static/img/tag.png' mode="aspectFit" bindtap='otherFixedCreate'></image>
         <text>固定配比</text>
       </view>
       <view class="flex-item">

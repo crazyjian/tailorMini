@@ -8,9 +8,14 @@
     "pages/mainTailorCreate/mainTailorCreate",
     "pages/mainMatchRatio/mainMatchRatio",
     "pages/mainTailorSave/mainTailorSave",
+    "pages/mainTailorSearch/mainTailorSearch",
     "pages/otherTailorCreate/otherTailorCreate",
     "pages/otherMatchRatio/otherMatchRatio",    
-    "pages/otherTailorSave/otherTailorSave"
+    "pages/otherTailorSave/otherTailorSave",
+    "pages/otherTailorSearch/otherTailorSearch",
+    "pages/otherFixedCreate/otherFixedCreate",
+    "pages/otherFixedRatio/otherFixedRatio",
+    "pages/otherFixedSave/otherFixedSave"
   ],
   "window": {
     "backgroundTextStyle": "light",

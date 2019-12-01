@@ -10,12 +10,14 @@ Page({
     matchRatios: [{ "sizeName": "","ratio":""}],
     sizeNames:["请选择"],
     s_index:[0],
-    partNames:[]
+    partNames:[],
+    fixedNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    f_index:0
   },
   onLoad: function (option) {
     var obj = this;
     wx.getStorage({
-      key: 'omatchRatios',
+      key: 'fmatchRatios',
       success(res) {
         var ratioTotal = 0;
         for (var i = 0; i < res.data.length; i++) {
@@ -35,7 +37,7 @@ Page({
       }
     });
     wx.getStorage({
-      key: 'os_index',
+      key: 'fs_index',
       success(res) {
         obj.setData({
           s_index: res.data,
@@ -133,11 +135,11 @@ Page({
       s_index: s_index
     }),
     wx.setStorage({
-      key: "omatchRatios",
+      key: "fmatchRatios",
       data: matchRatios
     });
     wx.setStorage({
-      key: "os_index",
+      key: "fs_index",
       data: s_index
     });
   },
@@ -163,11 +165,11 @@ Page({
       numTotal: numTotal
     }),
     wx.setStorage({
-      key: "omatchRatios",
+      key: "fmatchRatios",
       data: matchRatios
     });
     wx.setStorage({
-      key: "os_index",
+      key: "fs_index",
       data: s_index
     });
   },
@@ -191,7 +193,7 @@ Page({
       numTotal: numTotal
     }),
     wx.setStorage({
-      key: "omatchRatios",
+      key: "fmatchRatios",
       data: matchRatios
     });
   },
@@ -210,11 +212,11 @@ Page({
       matchRatios: matchRatios
     }),
     wx.setStorage({
-      key: "omatchRatios",
+      key: "fmatchRatios",
       data: matchRatios
     });
     wx.setStorage({
-      key: "os_index",
+      key: "fs_index",
       data: s_index
     });
   },
@@ -225,6 +227,11 @@ Page({
     })
     let detailValue = this.data.partNames.filter(it => it.selected).map(it => it.name)
     console.log('所有选中的值为：', detailValue)
+  },
+  bindFixedNumChange:function(e) {
+    this.setData({
+      f_index: e.detail.value
+    })
   },
   generate:function() {
     var matchRatios = this.data.matchRatios;
@@ -254,6 +261,7 @@ Page({
       params.clothesVersionNumber = this.data.looseFabrics[0].clothesVersionNumber;
       params.partNameList = partNames;
       params.miniMatchRatioList = matchRatios;
+      params.fixedNumber = this.data.fixedNumbers[this.data.f_index];
       var miniTailorLayerInfoList = [];
       for (var i = 0; i < this.data.looseFabrics.length;i++) {
         var tmp = {};
