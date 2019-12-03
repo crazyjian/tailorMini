@@ -286,7 +286,7 @@ Page({
           // console.log(res.data);
           if (res.statusCode == 200 && res.data.tailorList) {
             wx.navigateTo({
-              url: "../mainTailorSave/mainTailorSave?tailorList=" + JSON.stringify(res.data.tailorList)
+              url: "../otherFixedSave/otherFixedSave?tailorList=" + JSON.stringify(res.data.tailorList)
             })
           } else {
             wx.showToast({
