@@ -7,7 +7,9 @@ Page({
     looseFabrics:[],
     layerCount:'',
     weightTotal:0,
-    layerTotal:0
+    layerTotal:0,
+    isHide: true,
+    qrCode: ''
   },
   onLoad: function (option) {
     var obj = this;
@@ -35,6 +37,110 @@ Page({
         })
       }
     });
+  },
+  hand: function () {
+    this.setData({
+      isHide: false
+    })
+  },
+  cancel: function (e) {
+    this.setData({
+      isHide: true,
+      qrCode: ''
+    })
+  },
+  setQrCodeValue: function (e) {
+    this.setData({
+      qrCode: e.detail.value
+    })
+  },
+  handConfirm: function () {
+    var qrCode = this.data.qrCode
+    if (!qrCode) {
+      wx.showToast({
+        title: '请输入二维码',
+        image: '../../static/img/error.png',
+        duration: 1000
+      })
+      return false;
+    }
+    var obj = this;
+    obj.setData({
+      looseFabric: {},
+      layerCount: ""
+    })
+    wx.request({
+      url: app.globalData.backUrl + '/erp/minigetloosefabricbyid',
+      data: {
+        'qCodeID': qrCode
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        // console.log(res.data);
+        if (res.statusCode == 200) {
+          if (res.data.looseFabric) {
+            var currentDate = new Date();
+            var looseTime = new Date(res.data.looseFabric.looseTime);
+            var diff = currentDate.getTime() - looseTime.getTime();
+            if (Math.floor(diff / 1000 / 60 / 60) <= res.data.looseFabric.looseHour) {
+              wx.showToast({
+                title: "该松布时间未到，暂时不能扫描",
+                icon: 'none',
+                duration: 1000,
+              })
+              return;
+            }
+
+            if (obj.data.looseFabrics.length > 0 && obj.data.looseFabrics[0].orderName != res.data.looseFabric.orderName) {
+              wx.showToast({
+                title: "请扫描相同订单信息",
+                icon: 'none',
+                duration: 1000,
+              })
+            } else {
+              var flag = true;
+              if (obj.data.looseFabrics.length > 0) {
+                for (var i = 0; i < obj.data.looseFabrics.length; i++) {
+                  if (obj.data.looseFabrics[i].looseFabricID == res.data.looseFabric.looseFabricID) {
+                    flag = false;
+                    break;
+                  }
+                }
+              }
+              if (flag) {
+                obj.setData({
+                  looseFabric: res.data.looseFabric,
+                  isHide: true,
+                  qrCode: ''
+                })
+              } else {
+                wx.showToast({
+                  title: "该二维码已扫描",
+                  icon: 'none',
+                  duration: 1000,
+                })
+              }
+            }
+          } else {
+            wx.showToast({
+              title: "获取不到信息",
+              image: '../../static/img/error.png',
+              duration: 1000,
+            })
+          }
+        }
+      },
+      fail: function (res) {
+        wx.showToast({
+          title: "服务连接失败",
+          image: '../../static/img/error.png',
+          duration: 1000,
+        })
+      }
+    })
   },
   scanFabric:function() {
     var obj = this;
