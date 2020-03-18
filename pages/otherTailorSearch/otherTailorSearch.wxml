@@ -11,7 +11,7 @@
       </scroll-view>
     </view>
     <view class='searchItem' style="margin-top:20rpx;">
-      <text>床号：</text>
+      <text>订单：</text>
       <picker bindchange="bindOrderChange" value="{{o_index}}" range="{{orderNames}}">
           <view class="picker">
             {{orderNames[o_index]}}

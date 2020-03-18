@@ -42,7 +42,9 @@ Page({
         })
       }
     });
+    console.log(option.looseFabrics);
     var looseFabrics = JSON.parse(option.looseFabrics);
+    
     this.setData({
       layerTotal: option.layerTotal,
       looseFabrics: looseFabrics

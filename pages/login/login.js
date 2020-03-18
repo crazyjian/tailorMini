@@ -77,7 +77,7 @@ Page({
       app.globalData.backUrl = "https://dy.jingyiclothing.com";
       app.globalData.factoryName = "德悦";
     } else {
-      app.globalData.backUrl = "http://192.168.0.103:8080";
+      app.globalData.backUrl = "http://192.168.0.102:8080";
       app.globalData.factoryName = "";
     }
     var employeeNumber = e.detail.value.employeeNumber; // 获取当前表单元素输入框内容

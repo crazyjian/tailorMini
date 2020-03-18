@@ -274,9 +274,9 @@ Page({
       }
       params.miniTailorLayerInfoList = miniTailorLayerInfoList;
       wx.request({
-        url: app.globalData.backUrl + '/erp/minigeneratemaintailordata',
+        url: app.globalData.backUrl + '/erp/minigenerateothertailordatacombine',
         data: {
-          mainTailorJson: JSON.stringify(params)
+          otherTailorJson: JSON.stringify(params)
         },
         method: 'POST',
         header: {
