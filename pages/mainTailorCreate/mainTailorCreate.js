@@ -348,7 +348,7 @@ Page({
   next:function() {
     if(this.data.looseFabrics.length > 0) {
       wx.navigateTo({
-        url: "../mainMatchRatio/mainMatchRatio?layerTotal=" + this.data.layerTotal + "&looseFabrics=" + JSON.stringify(this.data.looseFabrics)
+        url: "../mainMatchRatio/mainMatchRatio?layerTotal=" + this.data.layerTotal + "&looseFabrics=" + encodeURIComponent(JSON.stringify(this.data.looseFabrics))
       })
     }else {
       wx.showToast({

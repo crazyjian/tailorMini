@@ -75,9 +75,9 @@ Page({
       app.globalData.factoryName = "盐城立福麦";
     } else if (qrCode == '3') {
       app.globalData.backUrl = "https://dy.jingyiclothing.com";
-      app.globalData.factoryName = "德悦";
+      app.globalData.factoryName = "中山德悦服饰";
     } else {
-      app.globalData.backUrl = "http://192.168.0.102:8080";
+      app.globalData.backUrl = "http://192.168.0.101:8080";
       app.globalData.factoryName = "";
     }
     var employeeNumber = e.detail.value.employeeNumber; // 获取当前表单元素输入框内容

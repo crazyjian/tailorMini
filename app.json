@@ -15,7 +15,11 @@
     "pages/otherTailorSearch/otherTailorSearch",
     "pages/otherFixedCreate/otherFixedCreate",
     "pages/otherFixedRatio/otherFixedRatio",
-    "pages/otherFixedSave/otherFixedSave"
+    "pages/otherFixedSave/otherFixedSave",
+    "pages/fabricInShelf/fabricInShelf",
+    "pages/fabricOutShelf/fabricOutShelf",
+    "pages/fabricReturnShelf/fabricReturnShelf",
+    "pages/fabricSearch/fabricSearch"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -44,7 +44,7 @@ Page({
         })
       }
     });
-    var looseFabrics = JSON.parse(option.looseFabrics);
+    var looseFabrics = JSON.parse(decodeURIComponent(option.looseFabrics));
     this.setData({
       layerTotal: option.layerTotal,
       looseFabrics: looseFabrics
@@ -286,7 +286,7 @@ Page({
           // console.log(res.data);
           if (res.statusCode == 200 && res.data.tailorList) {
             wx.navigateTo({
-              url: "../otherFixedSave/otherFixedSave?tailorList=" + JSON.stringify(res.data.tailorList)
+              url: "../otherFixedSave/otherFixedSave?tailorList=" + encodeURIComponent(JSON.stringify(res.data.tailorList))
             })
           } else {
             wx.showToast({

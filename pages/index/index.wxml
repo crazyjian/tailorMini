@@ -13,7 +13,7 @@
       </view>
     </view>
   
-    <view class="title" style="color:#32CD32;padding-top:80rpx">配料票菲</view>
+    <view class="title" style="color:#32CD32;padding-top:40rpx">配料票菲</view>
     <view class="flex-wrp" style="flex-direction:row;">
       <view class="flex-item">
         <image class='itemImg' src='../../static/img/list2.png' mode="aspectFit" bindtap='otherTailorCreate'></image>
@@ -26,6 +26,28 @@
       <view class="flex-item">
         <image class='itemImg' src='../../static/img/search2.png' mode="aspectFit" bindtap='otherTailorSearch'></image>
         <text>票菲查询</text>
+      </view>
+    </view>
+
+    <view class="title" style="color:#f4ea2a;padding-top:40rpx">面料对接</view>
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item">
+        <image class='itemImg' src='../../static/img/inshelf.png' mode="aspectFit" bindtap='fabricInShelf'></image>
+        <text>上架扫描</text>
+      </view>
+      <view class="flex-item">
+        <image class='itemImg' src='../../static/img/outshelf.png' mode="aspectFit" bindtap='scanOutShelf'></image>
+        <text>下架扫描</text>
+      </view>
+      <view class="flex-item">
+        <image class='itemImg' src='../../static/img/returnshelf.png' mode="aspectFit" bindtap='scanReturnShelf'></image>
+        <text>退架扫描</text>
+      </view>
+    </view>
+    <view class="flex-wrp" style="flex-direction:row; padding-top:40rpx">
+      <view class="flex-item">
+        <image class='itemImg' src='../../static/img/searchshelf.png' mode="aspectFit" bindtap='fabricSearch'></image>
+        <text>对接查询</text>
       </view>
     </view>
   </view>

@@ -1,0 +1,64 @@
+<navigate-title title="确认退架" />
+<view class="container" style="padding:50rpx;align-items:left;background-color:rgb(242, 242, 242)">
+  <view class="section">
+
+    <view class='searchItem'>
+      <view class='searchItemImg'>
+        <image src='../../static/img/scan.png' style='display:inline' mode="aspectFit"></image>
+      </view>
+      <label style='display:inline; width:30%'>松布架:</label>
+      <input class='searchItemInput' placeholder='{{placeholder}}' style='width:60%' value='{{shelfName}}' bindtap='scanShelf' disabled="true"></input>  
+      <view class='searchItemImg' wx:if="{{isShow}}">
+        <image src='{{scanPic}}' style='display:inline' mode="aspectFit"></image>
+      </view>  
+    </view>    
+    <scroll-view scroll-x="true"> 
+      <view class="table">
+        <view class="tr bg-w">
+          <view class="th" style='width:8%'>序号</view>
+          <view class="th" style='width:25%'>上架时间</view>
+          <view class="th" style='width:15%'>单号</view>
+          <view class="th" style='width:15%'>款号</view>
+          <view class="th" style='width:30%'>面料名</view>
+          <view class="th" style='width:10%'>颜色</view>
+          <view class="th" style='width:15%'>缸号</view>
+          <view class="th" style='width:8%'>卷次</view>
+          <view class="th" style='width:10%'>布色</view>
+          <view class="th" style='width:10%'>面料仓</view>
+          <view class="th" style='width:15%'>二维码</view>
+        </view>
+        <block wx:for="{{looseFabrics}}">
+          <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+            <view class="td" style='width:8%'>{{index+1}}</view>
+            <view class="td" style='width:25%'>{{item.loadingTime}}</view>
+            <view class="td" style='width:15%'>{{item.clothesVersionNumber}}</view>
+            <view class="td" style='width:15%'>{{item.orderName}}</view>
+            <view class="td" style='width:30%'>{{item.fabricName}}</view>
+            <view class="td" style='width:10%'>{{item.colorName}}</view>
+            <view class="td" style='width:15%'>{{item.jarNumber}}</view>
+            <view class="td" style='width:8%'>{{item.batchOrder}}</view>
+            <view class="td" style='width:10%'>{{item.fabricColor}}</view>
+            <view class="td" style='width:10%'>{{item.fromLocation}}</view>
+            <view class="td" style='width:15%'>{{item.qCodeID}}</view>
+          </view>
+          <view class="tr" wx:else>
+            <view class="td" style='width:8%'>{{index+1}}</view>
+            <view class="td" style='width:25%'>{{item.loadingTime}}</view>
+            <view class="td" style='width:15%'>{{item.clothesVersionNumber}}</view>
+            <view class="td" style='width:15%'>{{item.orderName}}</view>
+            <view class="td" style='width:30%'>{{item.fabricName}}</view>
+            <view class="td" style='width:10%'>{{item.colorName}}</view>
+            <view class="td" style='width:15%'>{{item.jarNumber}}</view>
+            <view class="td" style='width:8%'>{{item.batchOrder}}</view>
+            <view class="td" style='width:10%'>{{item.fabricColor}}</view>
+            <view class="td" style='width:10%'>{{item.fromLocation}}</view>
+            <view class="td" style='width:15%'>{{item.qCodeID}}</view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+    <view class='button' style="margin-top:40rpx">
+      <button class='btn' bindtap='returnShelf'>确认退架</button>
+    </view>
+  </view>
+</view>

@@ -11,7 +11,7 @@ Page({
   },
   onLoad: function (option) {
     var obj = this;
-    var tailorList = JSON.parse(option.tailorList);
+    var tailorList = JSON.parse(decodeURIComponent(option.tailorList));
     for (var i = 0; i < tailorList.length;i++) {
       tailorList[i].tailorQcodeID = this.prefixZero(tailorList[i].tailorQcodeID, 9);
     }
