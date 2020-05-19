@@ -122,7 +122,7 @@ label {
   border-top: 1px solid darkgray;
   border-right: 1px solid darkgray;
   border-bottom: 1px solid darkgray;
-  width: 2000rpx;
+  width: 2300rpx;
   overflow-x: auto;
 }
 .tr {
