@@ -12,8 +12,8 @@
             <view class="th" style='width:15%'>缸号</view>
             <view class="th" style='width:10%'>订单颜色</view>
             <view class="th" style='width:10%'>重量</view>
-            <view class="th" style='width:10%'>层数</view>
-            <view class="th" style='width:10%'>组别</view>
+            <view class="th" style='width:8%'>层数</view>
+            <view class="th" style='width:12%'>组别</view>
             <view class="th" style='width:10%'>操作</view>
           </view>
           <block wx:for="{{looseFabrics}}">
@@ -26,9 +26,9 @@
               <view class="td" style='width:15%'>{{item.jarNumber}}</view>
               <view class="td" style='width:10%'>{{item.colorName}}</view>
               <view class="td" style='width:10%'>{{item.weight}}</view>
-              <view class="td" style='width:10%'>{{item.layerCount}}</view>
-              <view class="td" style='width:10%'>{{item.operateType}}</view>
-              <view class="td" style='width:10%;color:red' data-loosefabricid="{{item.looseFabricID}}" bindtap='delete'>删除</view>
+              <view class="td" style='width:8%'>{{item.layerCount}}</view>
+              <view class="td" style='width:12%'>{{item.operateType}}</view>
+               <view class="td" style='width:10%'><text style='color:#6495ED' data-loosefabricid="{{item.looseFabricID}}" data-layercount="{{item.layerCount}}" bindtap='update'>修改</text><text style="margin-left: 10rpx;color:red" data-loosefabricid="{{item.looseFabricID}}" bindtap='delete'>删除</text></view>
             </view>
             <view class="tr" wx:else>
               <view class="td" style='width:5%'>{{index+1}}</view>
@@ -39,9 +39,9 @@
               <view class="td" style='width:15%'>{{item.jarNumber}}</view>
               <view class="td" style='width:10%'>{{item.colorName}}</view>
               <view class="td" style='width:10%'>{{item.weight}}</view>
-              <view class="td" style='width:10%'>{{item.layerCount}}</view>
-              <view class="td" style='width:10%'>{{item.operateType}}</view>
-              <view class="td" style='width:10%;color:red' data-loosefabricid="{{item.looseFabricID}}" bindtap='delete'>删除</view>
+              <view class="td" style='width:8%'>{{item.layerCount}}</view>
+              <view class="td" style='width:12%'>{{item.operateType}}</view>
+               <view class="td" style='width:10%'><text style='color:#6495ED' data-loosefabricid="{{item.looseFabricID}}" data-layercount="{{item.layerCount}}" bindtap='update'>修改</text><text style="margin-left: 10rpx;color:red" data-loosefabricid="{{item.looseFabricID}}" bindtap='delete'>删除</text></view>
             </view>
           </block>
         </view>
@@ -121,6 +121,27 @@
               </view>
               <view class='button2'>
                   <button catchtap='handConfirm'>确定</button>
+              </view>
+          </view>
+      </view>
+  </view>
+  <view class='toast-box' hidden='{{isLayerHide}}'>
+      <view class='toastbg'></view>
+      <view class='showToast'>
+          <view class='toast-title'>
+              <text>修改层数</text>
+          </view>
+          <view class='toast-main'>
+              <view class='toast-input'>
+                  <input placeholder='请输入层数' bindinput='setLayerValue' value='{{layer}}'></input>
+              </view>
+          </view>
+          <view class='toast-button'>
+              <view class='button1'>
+                  <button catchtap='layerCancel'>取消</button>
+              </view>
+              <view class='button2'>
+                  <button catchtap='layerConfirm'>保存</button>
               </view>
           </view>
       </view>

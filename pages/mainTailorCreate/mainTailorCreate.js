@@ -345,6 +345,7 @@ Page({
         image: '../../static/img/error.png',
         duration: 1000,
       })
+      return;
     }
     var looseFabricID = this.data.updateLooseFabricID;
     var looseFabrics = this.data.looseFabrics;

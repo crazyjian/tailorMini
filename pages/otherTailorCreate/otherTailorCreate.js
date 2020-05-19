@@ -9,7 +9,10 @@ Page({
     weightTotal:0,
     layerTotal:0,
     isHide: true,
-    qrCode: ''
+    isLayerHide: true,
+    qrCode: '',
+    updateLooseFabricID: '',
+    layer: ''
   },
   onLoad: function (option) {
     var obj = this;
@@ -313,6 +316,63 @@ Page({
         data: weightTotal
       });
     }
+  },
+  update: function (e) {
+    var looseFabricID = e.currentTarget.dataset.loosefabricid;
+    var layer = e.currentTarget.dataset.layercount;
+    this.setData({
+      updateLooseFabricID: looseFabricID,
+      layer: layer,
+      isLayerHide: false
+    })
+  },
+  layerCancel: function (e) {
+    this.setData({
+      isLayerHide: true,
+      layer: ''
+    })
+  },
+  setLayerValue: function (e) {
+    this.setData({
+      layer: e.detail.value
+    })
+  },
+  layerConfirm: function (e) {
+    var layer = this.data.layer;
+    if (layer == "") {
+      wx.showToast({
+        title: "请输入层数",
+        image: '../../static/img/error.png',
+        duration: 1000,
+      })
+      return;
+    }
+    var looseFabricID = this.data.updateLooseFabricID;
+    var looseFabrics = this.data.looseFabrics;
+    var layerTotal = this.data.layerTotal;
+    var oldLayer = 0;
+    for (var i = 0; i < looseFabrics.length; i++) {
+      if (looseFabrics[i].looseFabricID == looseFabricID) {
+        oldLayer = looseFabrics[i].layerCount;
+        looseFabrics[i].layerCount = layer;
+        break;
+      }
+    }
+    layerTotal = parseInt(layerTotal - oldLayer + layer);
+    this.setData({
+      looseFabrics: looseFabrics,
+      layerTotal: layerTotal,
+      isLayerHide: true,
+      layer: ''
+    })
+    wx.setStorage({
+      key: "olooseFabrics",
+      data: looseFabrics
+    });
+    wx.setStorage({
+      key: "olayerTotal",
+      data: layerTotal
+    });
   },
   delete:function(e) {
     var looseFabricID = e.currentTarget.dataset.loosefabricid;
